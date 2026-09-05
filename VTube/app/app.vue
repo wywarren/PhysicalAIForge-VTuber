@@ -25,9 +25,16 @@ useHead({
                     :finals="finals" :selected-finals="selectedFinals" @select-avatar="selectAvatar"
                     @select-clip="selectClip" @select-transfer="selectTransfer" @select-plate="selectPlate"
                     @remove-clip="removeClip" @remove-plate="removePlate" @convert-transfers="convertTransfers"
-                    @convert-finals="convertFinals" :jobs="jobs" />
+                    @convert-finals="convertFinals" :jobs="jobs" @play-video="playVideo"/>
             </NuxtPage>
         </div>
+    </div>
+    <a ref="mask" v-if="video" class="mask" @click="closeVideo()"></a>
+    <div class="video-modal" v-if="video">
+        <video controls autoplay loop playsinline width="100%" style="">
+            <source :src="video" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </div>
 </template>
 <script>
@@ -58,12 +65,19 @@ export default {
             finals: Globals.finals,
             selectedFinals: [],
             jobs: [],
+            video: null,
         }
     },
     mounted() {
 
     },
     methods: {
+        playVideo(video) {
+            this.video = video;
+        },
+        closeVideo() {
+            this.video = null;
+        },
         async convertFinals() {
             let now = new Date();
 

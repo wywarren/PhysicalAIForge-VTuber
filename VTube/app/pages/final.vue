@@ -20,7 +20,7 @@
                                 :style="`background-image: url(` + final.thumbnail + `);`">
                                 <div class="fade-mask"></div>
                                 <div class="hover-mask">
-                                    <a class="play-circle" @click="">
+                                    <a class="play-circle" @click="playVideo(final)">
                                         <div class="play-triangle"></div>
                                     </a>
                                     <button class="secondary">
@@ -39,7 +39,6 @@
     </div>
 </template>
 <script>
-
 export default {
     components: {
 
@@ -56,6 +55,9 @@ export default {
 
     },
     methods: {
+        playVideo(final) {
+            this.$emit("play-video", final.url);
+        },
         selectFinal(id) {
             for (let i = 0; i < this.finals.length; i++) {
                 let final = this.finals[i];

@@ -27,7 +27,7 @@
                 <template v-for="(clip, index) in selectedClips" :key="index">
                     <li :style="`background-image: url(` + clip.thumbnail + `);`">
                         <div class="hover-mask">
-                            <a class="play-circle" @click="">
+                            <a class="play-circle" @click="playVideo(clip)">
                                 <div class="play-triangle"></div>
                             </a>
                             <button class="remove" @click="removeClip(clip)" style="top:68%">
@@ -67,9 +67,12 @@ export default {
 
     },
     methods: {
+        playVideo(clip) {
+            this.$emit("play-video", clip);
+        },
         convertTransfers() {
-            console.log(this.selectedAvatar);
-            console.log(this.selectedClips);
+            // console.log(this.selectedAvatar);
+            // console.log(this.selectedClips);
             this.$emit("convert-transfers");
         },
         removeClip(clip) {

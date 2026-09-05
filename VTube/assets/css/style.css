@@ -31,13 +31,25 @@ img {
 
 a.mask {
     cursor: pointer;
-    display: none;
     position: fixed;
     background: rgba(0, 0, 0, 0.7);
     width: 100%;
     height: 100%;
-    z-index: 8;
+    z-index: 100;
 }
+.video-modal{
+    z-index: 100;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
 
 .desktop-hidden {
     display: none !important;

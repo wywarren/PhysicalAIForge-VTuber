@@ -4,7 +4,10 @@
         <div class="avatar-item" v-if="selectedTransfer"
             :style="`background-image: url(` + selectedTransfer.thumbnail + `);`">
             <div class="hover-mask">
-                <button class="secondary" @click="changeTransfer" style="top:50%">
+                <a class="play-circle" @click="playVideo(selectedTransfer)">
+                    <div class="play-triangle"></div>
+                </a>
+                <button class="secondary" @click="changeTransfer" style="top:68%">
                     Change
                 </button>
             </div>
@@ -25,7 +28,7 @@
                 <template v-for="(plate, index) in selectedPlates" :key="index">
                     <li :style="`background-image: url(` + plate.thumbnail + `);`">
                         <div class="hover-mask">
-                            <a class="play-circle" @click="">
+                            <a class="play-circle" @click="playVideo(plate)">
                                 <div class="play-triangle"></div>
                             </a>
                             <button class="remove" @click="removePlate(plate)" style="top:68%">
@@ -65,9 +68,12 @@ export default {
 
     },
     methods: {
+        playVideo(clip) {
+            this.$emit("play-video", clip);
+        },
         convertFinal() {
-            console.log(this.selectedTransfer);
-            console.log(this.selectedPlates);
+            // console.log(this.selectedTransfer);
+            // console.log(this.selectedPlates);
             this.$emit("convert-finals");
         },
         removePlate(plate) {

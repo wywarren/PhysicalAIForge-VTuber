@@ -24,7 +24,7 @@
                                 <div class="fade-mask">
                                 </div>
                                 <div class="hover-mask">
-                                    <a class="play-circle" @click="">
+                                    <a class="play-circle" @click="playVideo(transfer)">
                                         <div class="play-triangle"></div>
                                     </a>
                                     <button class="secondary" @click="selectTransfer(transfer.id)">
@@ -60,6 +60,9 @@ export default {
 
     },
     methods: {
+        playVideo(transfer) {
+            this.$emit("play-video", transfer.url);
+        },
         selectTransfer(id) {
             for (let i = 0; i < this.transfers.length; i++) {
                 let transfer = this.transfers[i];

@@ -24,7 +24,7 @@ import { watch } from 'vue'
         <a ref="burgerMenuButton" class="mobile-menu-toggle" @click="toggleMobileMenu">
             <hr />
         </a>
-        <a ref="mask" class="mask" @click="toggleMobileMenu"></a> -->
+         -->
     </header>
 </template>
 <script>

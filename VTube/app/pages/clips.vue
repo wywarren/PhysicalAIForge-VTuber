@@ -23,7 +23,7 @@ import AvatarTransfer from '~/components/AvatarTransfer.vue';
                             <div class="thumbnail" :style="`background-image: url(` + clip.thumbnail + `);`">
                                 <div class="fade-mask"></div>
                                 <div class="hover-mask">
-                                    <a class="play-circle" @click="">
+                                    <a class="play-circle" @click="playVideo(clip)">
                                         <div class="play-triangle"></div>
                                     </a>
                                     <button class="secondary" @click="selectClip(clip.id)">
@@ -39,9 +39,8 @@ import AvatarTransfer from '~/components/AvatarTransfer.vue';
                 </template>
             </ul>
         </div>
-        <AvatarTransfer :selected-avatar="selectedAvatar" :selected-clips="selectedClips"
-            @remove-clip="removeClip"
-            @convert-transfers="convertTransfers"/>
+        <AvatarTransfer :selected-avatar="selectedAvatar" :selected-clips="selectedClips" @remove-clip="removeClip"
+            @convert-transfers="convertTransfers" @play-video="playVideo" />
     </div>
 </template>
 <script>
@@ -64,10 +63,13 @@ export default {
 
     },
     methods: {
-        convertTransfers(){
+        playVideo(clip) {
+            this.$emit("play-video", clip.url);
+        },
+        convertTransfers() {
             this.$emit("convert-transfers");
         },
-        removeClip(clip){
+        removeClip(clip) {
             this.$emit("remove-clip", clip);
         },
         selectClip(id) {

@@ -25,7 +25,7 @@ import TransferComposite from '~/components/TransferComposite.vue';
                                 <div class="fade-mask">
                                 </div>
                                 <div class="hover-mask">
-                                    <a class="play-circle" @click="">
+                                    <a class="play-circle" @click="playVideo(plate)">
                                         <div class="play-triangle"></div>
                                     </a>
                                     <button class="secondary">
@@ -43,7 +43,8 @@ import TransferComposite from '~/components/TransferComposite.vue';
         </div>
         <TransferComposite :selected-transfer="selectedTransfer" :selected-plates="selectedPlates"
             @remove-plate="removePlate" 
-            @convert-finals="convertFinals" />
+            @convert-finals="convertFinals"
+            @play-video="playVideo" />
     </div>
 </template>
 <script>
@@ -65,6 +66,9 @@ export default {
 
     },
     methods: {
+        playVideo(plate) {
+            this.$emit("play-video", plate.url);
+        },
         convertFinals(){
             this.$emit("convert-finals");
         },
