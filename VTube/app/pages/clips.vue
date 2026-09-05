@@ -18,15 +18,16 @@
         <div class="row-container">
             <ul class="results" style="margin-top: 20px;">
                 <template v-for="(clip, index) in clips" :key="index">
-                    <li class="clip-item" :style="`background-image: url(` + clip.thumbnail + `);`">
-                        <div class="fade-mask">
-
+                    <li>
+                        <div class="clip-item">
+                            <a class="thumbnail" :style="`background-image: url(` + clip.thumbnail + `);`">
+                                <div class="fade-mask"></div>
+                            
+                                <div class="name">
+                                    <span class="tag">{{ clip.name }}</span>
+                                </div>
+                            </a>
                         </div>
-                        <a @click="selectClip(clip.id)">
-                            <div class="name">
-                                <span class="tag">{{ clip.name }}</span>
-                            </div>
-                        </a>
                     </li>
                 </template>
             </ul>

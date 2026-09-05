@@ -14,15 +14,16 @@
         <div class="row-container">
             <ul class="results" style="margin-top: 20px;">
                 <template v-for="(final, index) in finals" :key="index">
-                    <li class="final-item" :style="`background-image: url(` + final.thumbnail + `);`">
-                        <div class="fade-mask">
-
+                    <li>
+                        <div class="final-item">
+                            <a class="thumbnail" @click="selectFinal(final.id)"
+                                :style="`background-image: url(` + final.thumbnail + `);`">
+                                <div class="fade-mask"></div>
+                                <div class="name">
+                                    <span class="tag">{{ final.name }}</span>
+                                </div>
+                            </a>
                         </div>
-                        <a @click="selectFinal(final.id)">
-                            <div class="name">
-                                <span class="tag">{{ final.name }}</span>
-                            </div>
-                        </a>
                     </li>
                 </template>
             </ul>

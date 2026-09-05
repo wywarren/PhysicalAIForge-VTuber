@@ -18,15 +18,17 @@
         <div class="row-container">
             <ul class="results" style="margin-top: 20px;">
                 <template v-for="(plate, index) in plates" :key="index">
-                    <li class="plate-item" :style="`background-image: url(` + plate.thumbnail + `);`">
-                        <div class="fade-mask">
-
+                    <li>
+                        <div class="plate-item">
+                            <a class="thumbnail" @click="selectPlate(plate.id)"
+                                :style="`background-image: url(` + plate.thumbnail + `);`">
+                                <div class="fade-mask">
+                                </div>
+                                <div class="name">
+                                    <span class="tag">{{ plate.name }}</span>
+                                </div>
+                            </a>
                         </div>
-                        <a @click="selectPlate(plate.id)">
-                            <div class="name">
-                                <span class="tag">{{ plate.name }}</span>
-                            </div>
-                        </a>
                     </li>
                 </template>
             </ul>

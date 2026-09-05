@@ -18,15 +18,17 @@
         <div class="row-container">
             <ul class="results" style="margin-top: 20px;">
                 <template v-for="(transfer, index) in transfers" :key="index">
-                    <li class="transfer-item" :style="`background-image: url(` + transfer.thumbnail + `);`">
-                        <div class="fade-mask">
-
+                    <li>
+                        <div class="transfer-item">
+                            <a class="thumbnail" @click="selectTransfer(transfer.id)"
+                                :style="`background-image: url(` + transfer.thumbnail + `);`">
+                                <div class="fade-mask">
+                                </div>
+                                <div class="name">
+                                    <span class="tag">{{ transfer.name }}</span>
+                                </div>
+                            </a>
                         </div>
-                        <a @click="selectTransfer(transfer.id)">
-                            <div class="name">
-                                <span class="tag">{{ transfer.name }}</span>
-                            </div>
-                        </a>
                     </li>
                 </template>
             </ul>

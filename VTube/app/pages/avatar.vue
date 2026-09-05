@@ -14,15 +14,17 @@
         <div class="row-container">
             <ul class="results" style="margin-top: 20px;">
                 <template v-for="(avatar, index) in avatars" :key="index">
-                    <li class="avatar-item" :style="`background-image: url(` + avatar.thumbnail + `);`">
-                        <div class="fade-mask">
-
+                    <li>
+                        <div class="avatar-item">
+                            <a class="thumbnail" @click="selectAvatar(avatar.id)"
+                                :style="`background-image: url(` + avatar.thumbnail + `);`">
+                                <div class="fade-mask">
+                                </div>
+                                <div class="name">
+                                    <span class="tag">{{ avatar.name }}</span>
+                                </div>
+                            </a>
                         </div>
-                        <a @click="selectAvatar(avatar.id)">
-                            <div class="name">
-                                <span class="tag">{{ avatar.name }}</span>
-                            </div>
-                        </a>
                     </li>
                 </template>
             </ul>

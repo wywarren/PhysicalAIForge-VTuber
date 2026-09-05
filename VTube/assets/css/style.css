@@ -8,7 +8,7 @@ body {
     background: #0c0c0c;
     margin: 0px;
     padding: 0px;
-    color: #CCC;
+    color: #ccc;
 }
 
 #__nuxt {
@@ -51,7 +51,7 @@ button {
     border: 0px;
     border-radius: 4px;
     background: #333;
-    color: #CCC;
+    color: #ccc;
     position: relative;
     padding: 2px 4px;
 }
@@ -71,7 +71,11 @@ button.coming-soon:before {
     z-index: 10;
     padding: 2px 4px;
     background: #111;
-    background: linear-gradient(90deg, rgba(207, 0, 0, 1) 0%, rgba(255, 98, 0, 1) 100%);
+    background: linear-gradient(
+        90deg,
+        rgba(207, 0, 0, 1) 0%,
+        rgba(255, 98, 0, 1) 100%
+    );
 }
 
 button.primary {
@@ -82,17 +86,15 @@ button.secondary {
     background: #159151;
 }
 
-
-input[type=text],
-input[type=search] {
+input[type="text"],
+input[type="search"] {
     border: 0px;
     border-radius: 4px;
     background: #222;
-    color: #CCC;
+    color: #ccc;
     font-size: 14px;
     min-height: 24px;
     padding: 2px 8px;
-
 }
 
 .logo {
@@ -142,7 +144,6 @@ aside ul li a {
 aside ul li a.exact-active,
 aside ul li a:hover {
     background-color: rgba(0.1, 0.1, 0.1, 0.5);
-
 }
 
 aside ul li a.exact-active:after {
@@ -151,15 +152,19 @@ aside ul li a.exact-active:after {
     position: absolute;
     height: 100%;
     width: 2px;
-    background: #CF0000;
-    background: linear-gradient(90deg, rgba(207, 0, 0, 1) 0%, rgba(255, 98, 0, 1) 100%);
+    background: #cf0000;
+    background: linear-gradient(
+        90deg,
+        rgba(207, 0, 0, 1) 0%,
+        rgba(255, 98, 0, 1) 100%
+    );
     right: 0px;
     top: 0px;
 }
 
-aside ul li a.exact-active>div {
-    background: #CF0000;
-    background: linear-gradient(to left, #CF0000 0%, #FFE600 100%);
+aside ul li a.exact-active > div {
+    background: #cf0000;
+    background: linear-gradient(to left, #cf0000 0%, #ffe600 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -172,7 +177,7 @@ ul.step-container {
 }
 
 .step-card a {
-    color: #CCC;
+    color: #ccc;
     text-decoration: none;
 }
 
@@ -198,8 +203,8 @@ ul.step-container {
 }
 
 .step-card:hover {
-    background: #CF0000;
-    background: linear-gradient(to left, #CF0000 0%, #FFE600 100%);
+    background: #cf0000;
+    background: linear-gradient(to left, #cf0000 0%, #ffe600 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -237,22 +242,39 @@ ul.step-container {
     padding: 0px;
     display: flex;
     width: 100%;
+    flex-wrap: wrap;
 }
 
+.results li{
+    width: 25%;
+    display: flex;
+    position: relative;
+    list-style: none;
+    aspect-ratio: 4/3;
+}
 .avatar-item,
 .clip-item,
 .transfer-item,
 .plate-item,
 .final-item {
-    width: 25%;
-    display: flex;
+    margin: 5px;
+    width: calc(100% - 10px);
     position: relative;
-    list-style: none;
-    background-color: #111;
-    border-radius: 8px;
-    margin: 10px;
+}
+
+.avatar-item .thumbnail,
+.clip-item .thumbnail,
+.transfer-item .thumbnail,
+.plate-item .thumbnail,
+.final-item .thumbnail{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0px;
+    left: 0px;
     background-size: cover;
     background-position: center;
+    border-radius: 8px;
 }
 
 .avatar-item a,
@@ -261,7 +283,7 @@ ul.step-container {
 .plate-item a,
 .final-item a {
     width: 100%;
-    aspect-ratio: 4/3;
+    position: relative;
 }
 
 .fade-mask {
@@ -270,7 +292,11 @@ ul.step-container {
     height: 50%;
     background: #000000;
     bottom: 0px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 100%
+    );
 }
 
 .tag {
@@ -281,13 +307,14 @@ ul.step-container {
 }
 
 .avatar-item .name,
-.clip-item .name .transfer-item .name,
+.clip-item .name,
+ .transfer-item .name,
 .plate-item .name,
 .final-item .name {
-    width: 100%;
+    width: calc(100% - 10px);
     text-align: center;
     position: absolute;
-    bottom: 0px;
+    bottom: 10px;
     line-height: 32px;
 }
 
@@ -307,11 +334,33 @@ ul.step-container {
     margin: 0 auto;
 }
 
-@media only screen and (max-width: 1199px) {}
+@media only screen and (max-width: 1199px) {
+    .row-container {
+        width: 980px;
+    }
+}
 
-@media only screen and (max-width: 768px) {}
+@media only screen and (max-width: 980px) {
+    .row-container {
+        width: 768px;
+    }
+    .results li{
+        width: 33.3333%;
+    }
+
+    .avatar-item,
+    .clip-item,
+    .transfer-item,
+    .plate-item,
+    .final-item {
+        
+    }
+}
 
 @media only screen and (max-width: 767px) {
+    .row-container {
+        width: 420px;
+    }
     .desktop-hidden {
         display: block !important;
     }
@@ -324,6 +373,10 @@ ul.step-container {
         display: block;
         width: 24px;
         margin: 10px;
+    }
+
+    .results li{
+        width: 100%;
     }
 
     .mobile-menu-toggle.side {

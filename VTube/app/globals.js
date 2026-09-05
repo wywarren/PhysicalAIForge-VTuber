@@ -17,6 +17,36 @@ const data = {
             name: "Hachiware",
             thumbnail: Hachiware,
         },
+        {
+            id: "luna",
+            name: "Luna",
+            thumbnail: Luna,
+        },
+        {
+            id: "hachiware",
+            name: "Hachiware",
+            thumbnail: Hachiware,
+        },
+        {
+            id: "luna",
+            name: "Luna",
+            thumbnail: Luna,
+        },
+        {
+            id: "hachiware",
+            name: "Hachiware",
+            thumbnail: Hachiware,
+        },
+        {
+            id: "luna",
+            name: "Luna",
+            thumbnail: Luna,
+        },
+        {
+            id: "hachiware",
+            name: "Hachiware",
+            thumbnail: Hachiware,
+        },
     ],
     clips: [
         {
@@ -32,6 +62,21 @@ const data = {
         {
             id: "kol-m01",
             name: "KOL Male 01",
+            thumbnail: KOLSample,
+        },
+        {
+            id: "kol-m02",
+            name: "KOL Male 02",
+            thumbnail: KOLSample,
+        },
+        {
+            id: "kol-m02",
+            name: "KOL Male 02",
+            thumbnail: KOLSample,
+        },
+        {
+            id: "kol-m02",
+            name: "KOL Male 02",
             thumbnail: KOLSample,
         },
         {
