@@ -2,6 +2,8 @@
 
 Source assets: `/Assets`
 
+Demo temporarily hosted at: https://vtube.qoobit.com
+
 ## VTube Avatar Creation Steps
 - Crop photo to only usable close to front facing model
 - Take into Affinity and clean up extraneous items and try to unify background
