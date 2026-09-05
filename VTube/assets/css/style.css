@@ -47,7 +47,55 @@ a.mask {
     display: block;
 }
 
-.logo{
+button {
+    border: 0px;
+    border-radius: 4px;
+    background: #333;
+    color: #CCC;
+    position: relative;
+    padding: 2px 4px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button.coming-soon:before {
+    display: block;
+    content: "Coming Soon";
+    position: absolute;
+    top: -5px;
+    right: -15px;
+    font-size: 10px;
+    border-radius: 8px;
+    z-index: 10;
+    padding: 2px 4px;
+    background: #111;
+    background: linear-gradient(90deg, rgba(207, 0, 0, 1) 0%, rgba(255, 98, 0, 1) 100%);
+}
+
+button.primary {
+    background: #0f73ad;
+}
+
+button.secondary {
+    background: #159151;
+}
+
+
+input[type=text],
+input[type=search] {
+    border: 0px;
+    border-radius: 4px;
+    background: #222;
+    color: #CCC;
+    font-size: 14px;
+    min-height: 24px;
+    padding: 2px 8px;
+
+}
+
+.logo {
     height: 80px;
     width: 100%;
     display: block;
@@ -56,6 +104,7 @@ a.mask {
 header {
     background: #900;
 }
+
 aside {
     background: #111;
     width: 90px;
@@ -65,6 +114,7 @@ aside ul {
     margin: 0px;
     padding: 0px;
 }
+
 aside ul li {
     list-style: none;
     margin: 0px;
@@ -77,6 +127,7 @@ aside ul li .icon {
     font-size: 20px;
     margin-bottom: 4px;
 }
+
 aside ul li a {
     text-decoration: none;
     font-size: 12px;
@@ -91,7 +142,7 @@ aside ul li a {
 aside ul li a.exact-active,
 aside ul li a:hover {
     background-color: rgba(0.1, 0.1, 0.1, 0.5);
-    
+
 }
 
 aside ul li a.exact-active:after {
@@ -101,16 +152,75 @@ aside ul li a.exact-active:after {
     height: 100%;
     width: 2px;
     background: #CF0000;
-    background: linear-gradient(90deg,rgba(207, 0, 0, 1) 0%, rgba(255, 98, 0, 1) 100%);
-    right:0px;
-    top:0px;
+    background: linear-gradient(90deg, rgba(207, 0, 0, 1) 0%, rgba(255, 98, 0, 1) 100%);
+    right: 0px;
+    top: 0px;
 }
-aside ul li a.exact-active > div {
+
+aside ul li a.exact-active>div {
     background: #CF0000;
     background: linear-gradient(to left, #CF0000 0%, #FFE600 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+ul.step-container {
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+.step-card a {
+    color: #CCC;
+    text-decoration: none;
+}
+
+.step-card {
+    list-style: none;
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    flex-grow: 1;
+    text-align: center;
+    flex-direction: column;
+    background-color: #333;
+    border: solid 2px #222;
+    border-radius: 12px;
+    margin: 0 20px;
+    position: relative;
+    padding: 40px 0px;
+}
+
+.step-card .icon {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.step-card:hover {
+    background: #CF0000;
+    background: linear-gradient(to left, #CF0000 0%, #FFE600 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* .step-card::before,
+.step-card::after {
+    content: "";
+    position: absolute;
+
+    inset: -2px;
+    z-index: -1;
+    border-radius: inherit;
+
+    background: conic-gradient(from var(--angle), transparent 5%, #a00, #cc0);
+    animation: spin 5s linear infinite;
+}
+
+.step-card::before {
+    filter: blur(1.5rem);
+    opacity: 0.8;
+} */
 
 .mobile-menu-toggle {
     display: none;
@@ -120,6 +230,65 @@ aside ul li a.exact-active > div {
     z-index: 9;
     top: 5px;
     transition: right 0.2s;
+}
+
+.results {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    width: 100%;
+}
+
+.avatar-item,
+.clip-item,
+.transfer-item,
+.plate-item,
+.final-item {
+    width: 25%;
+    display: flex;
+    position: relative;
+    list-style: none;
+    background-color: #111;
+    border-radius: 8px;
+    margin: 10px;
+    background-size: cover;
+    background-position: center;
+}
+
+.avatar-item a,
+.clip-item a,
+.transfer-item a,
+.plate-item a,
+.final-item a {
+    width: 100%;
+    aspect-ratio: 4/3;
+}
+
+.fade-mask {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background: #000000;
+    bottom: 0px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+}
+
+.tag {
+    border-radius: 12px;
+    background: #333;
+    font-size: 12px;
+    padding: 2px 8px;
+}
+
+.avatar-item .name,
+.clip-item .name .transfer-item .name,
+.plate-item .name,
+.final-item .name {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+    line-height: 32px;
 }
 
 .content-container {
@@ -132,10 +301,15 @@ aside ul li a.exact-active > div {
     flex-grow: 1;
 }
 
-@media only screen and (max-width: 1199px) {
+.row-container {
+    width: 1200px;
+    display: flex;
+    margin: 0 auto;
 }
-@media only screen and (max-width: 768px) {
-}
+
+@media only screen and (max-width: 1199px) {}
+
+@media only screen and (max-width: 768px) {}
 
 @media only screen and (max-width: 767px) {
     .desktop-hidden {

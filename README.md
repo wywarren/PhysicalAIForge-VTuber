@@ -15,3 +15,7 @@ Source assets: `/Assets`
 - Located in `/VTube`. See `README.md` for npm setup instructions.
 - Currently using a Nuxt4 setup with default dev port set to 3001 and hosted build to 3005.
 - May need to setup reverse proxy hosting to build port if using something like nginx.
+
+
+## Credits
+- Sample plate from unsplash: `https://unsplash.com/photos/person-walking-inside-building-near-glass-2TLREZi7BUg?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink` from Heidi Fin

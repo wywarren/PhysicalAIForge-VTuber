@@ -4,27 +4,23 @@
 <template>
     <div style="display: flex;justify-content: center;flex-direction: column;">
         <div class="row-container" style="margin-top: 100px;">
-            <input type="search" placeholder="Search Clips"
+            <input type="search" placeholder="Search Finals"
                 style="margin-left:10px;padding: 8px 10px;font-size: 16px;" />
             <button @click="" class="primary coming-soon"
                 style="margin-left: 10px;color: #CCC;font-size: 16px;padding: 8px 10px;">
-                Upload Clip
-            </button>
-            <button @click="" class="primary coming-soon"
-                style="margin-left: 10px;color: #CCC;font-size: 16px;padding: 8px 10px;">
-                Create Clip
+                Upload Final
             </button>
         </div>
         <div class="row-container">
             <ul class="results" style="margin-top: 20px;">
-                <template v-for="(clip, index) in clips" :key="index">
-                    <li class="clip-item" :style="`background-image: url(` + clip.thumbnail + `);`">
+                <template v-for="(final, index) in finals" :key="index">
+                    <li class="final-item" :style="`background-image: url(` + final.thumbnail + `);`">
                         <div class="fade-mask">
 
                         </div>
-                        <a @click="selectClip(clip.id)">
+                        <a @click="selectFinal(final.id)">
                             <div class="name">
-                                <span class="tag">{{ clip.name }}</span>
+                                <span class="tag">{{ final.name }}</span>
                             </div>
                         </a>
                     </li>
@@ -40,7 +36,7 @@ export default {
 
     },
     props: [
-        "clips"
+        "finals"
     ],
     data() {
         return {
@@ -51,11 +47,11 @@ export default {
 
     },
     methods: {
-        selectClip(id) {
-            for (let i = 0; i < this.clips.length; i++) {
-                let clip = this.clips[i];
-                if (clip.id == id) {
-                    this.$emit("select-clip", clip);
+        selectFinal(id) {
+            for (let i = 0; i < this.finals.length; i++) {
+                let final = this.finals[i];
+                if (final.id == id) {
+                    this.$emit("select-final", final);
                     break;
                 }
             }
