@@ -1,5 +1,5 @@
 <script setup>
-
+import TransferComposite from '~/components/TransferComposite.vue';
 </script>
 <template>
     <div style="display: flex;justify-content: center;flex-direction: column;">
@@ -41,16 +41,19 @@
                 </template>
             </ul>
         </div>
+        <TransferComposite :selected-transfer="selectedTransfer" :selected-plates="selectedPlates"
+            @remove-plate="removePlate" />
     </div>
 </template>
 <script>
-
 export default {
     components: {
-
+        TransferComposite
     },
     props: [
-        "plates"
+        "plates",
+        "selected-transfer",
+        "selected-plates",
     ],
     data() {
         return {
@@ -61,7 +64,10 @@ export default {
 
     },
     methods: {
-        selectTransfer(id) {
+        removePlate(plate){
+            this.$emit("remove-plate", plate);
+        },
+        selectPlate(id) {
             for (let i = 0; i < this.plates.length; i++) {
                 let plate = this.plates[i];
                 if (plate.id == id) {

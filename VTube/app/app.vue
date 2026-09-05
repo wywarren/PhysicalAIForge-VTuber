@@ -21,9 +21,14 @@ useHead({
             <NuxtPage v-slot="{ Component } = {}">
                 <component :is="Component" :sections="sections" :avatars="avatars" :selected-avatar="selectedAvatar"
                     :clips="clips" :selected-clips="selectedClips" :transfers="transfers"
-                    :selected-transfers="selectedTransfers" :plates="plates" :selected-plates="selectedPlates"
-                    :finals="finals" :selected-finals="selectedFinals" @select-avatar="selectAvatar"
-                    @select-clip="selectClip" @remove-clip="removeClip" />
+                    :selected-transfer="selectedTransfer" :plates="plates" :selected-plates="selectedPlates"
+                    :finals="finals" :selected-finals="selectedFinals" 
+                    @select-avatar="selectAvatar"
+                    @select-clip="selectClip" 
+                    @select-transfer="selectTransfer"
+                    @select-plate="selectPlate"
+                    @remove-clip="removeClip"
+                    @remove-plate="removePlate" />
             </NuxtPage>
         </div>
     </div>
@@ -50,7 +55,7 @@ export default {
             clips: Globals.clips,
             selectedClips: [],
             transfers: Globals.transfers,
-            selectedTransfers: [],
+            selectedTransfer: null,
             plates: Globals.plates,
             selectedPlates: [],
             finals: Globals.finals,
@@ -61,11 +66,15 @@ export default {
 
     },
     methods: {
+        async selectTransfer(transfer) {
+            this.selectedTransfer = transfer;
+
+            navigateTo("/composite");
+        },
         async selectAvatar(avatar) {
             this.selectedAvatar = avatar;
 
             navigateTo("/clips");
-
         },
         async removeClip(clip) {
             for (let i = 0; i < this.selectedClips.length; i++) {
@@ -85,6 +94,26 @@ export default {
             }
             if (!exists) {
                 this.selectedClips.push(clip)
+            }
+        },
+        async removePlate(plate) {
+            for (let i = 0; i < this.selectedPlates.length; i++) {
+                if (this.selectedPlates[i].id == plate.id) {
+                    this.selectedPlates.splice(i, 1);
+                    break;
+                }
+            }
+        },
+        async selectPlate(plate) {
+            let exists = false;
+            for (let i = 0; i < this.selectedPlates.length; i++) {
+                if (this.selectedPlates[i].id == plate.id) {
+                    exists = true;
+                    break;
+                }
+            }
+            if (!exists) {
+                this.selectedPlates.push(plate)
             }
         }
     }

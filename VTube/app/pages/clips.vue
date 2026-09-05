@@ -1,5 +1,5 @@
 <script setup>
-
+import AvatarTransfer from '~/components/AvatarTransfer.vue';
 </script>
 <template>
     <div style="display: flex;justify-content: center;flex-direction: column;">
@@ -46,7 +46,7 @@
 
 export default {
     components: {
-
+        AvatarTransfer
     },
     props: [
         "clips",

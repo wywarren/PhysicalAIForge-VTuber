@@ -20,22 +20,21 @@
                 <template v-for="(transfer, index) in transfers" :key="index">
                     <li>
                         <div class="transfer-item">
-                            <a class="thumbnail" @click="selectTransfer(transfer.id)"
-                                :style="`background-image: url(` + transfer.thumbnail + `);`">
+                            <div class="thumbnail" :style="`background-image: url(` + transfer.thumbnail + `);`">
                                 <div class="fade-mask">
                                 </div>
                                 <div class="hover-mask">
                                     <a class="play-circle" @click="">
                                         <div class="play-triangle"></div>
                                     </a>
-                                    <button class="secondary">
+                                    <button class="secondary" @click="selectTransfer(transfer.id)">
                                         Select Transfer
                                     </button>
                                 </div>
                                 <div class="name">
                                     <span class="tag">{{ transfer.name }}</span>
                                 </div>
-                            </a>
+                            </div>
                         </div>
                     </li>
                 </template>
