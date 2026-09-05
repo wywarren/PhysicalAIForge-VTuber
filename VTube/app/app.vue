@@ -2,12 +2,7 @@
 import Header from "./components/Header.vue";
 import Menu from "./components/Menu.vue";
 
-import Hachiware from "./../assets/img/hachiware.jpg"
-import Luna from "./../assets/img/Luna.jpg"
-import KOLSample from "./../assets/img/kol-sample.png"
-import TransferSample from "./../assets/img/sample-transfer.jpg"
-import PlateSample from "./../assets/img/heidi-fin-2TLREZi7BUg-unsplash.jpg"
-import FinalSample from "./../assets/img/sample-composite.png"
+import Globals from "./globals.js";
 
 useHead({
     meta: [
@@ -51,80 +46,15 @@ export default {
                 { id: "final", name: "Final", icon: "upload-cloud" },
             ],
             section: "",
-            avatars: [
-                {
-                    "id": "luna",
-                    "name": "Luna",
-                    "thumbnail": Luna,
-                },
-                {
-                    "id": "hachiware",
-                    "name": "Hachiware",
-                    "thumbnail": Hachiware,
-                }
-            ],
+            avatars: Globals.avatars,
             selectedAvatar: null,
-            clips: [
-                {
-                    "id": "kol-f01",
-                    "name": "KOL Female 01",
-                    "thumbnail": KOLSample,
-                },
-                {
-                    "id": "kol-f02",
-                    "name": "KOL Female 02",
-                    "thumbnail": KOLSample,
-                },
-                {
-                    "id": "kol-m01",
-                    "name": "KOL Male 01",
-                    "thumbnail": KOLSample,
-                },
-                {
-                    "id": "kol-m02",
-                    "name": "KOL Male 02",
-                    "thumbnail": KOLSample,
-                },
-            ],
+            clips: Globals.clips,
             selectedClips: [],
-            transfers: [
-                {
-                    "id": "luna-transfer-01",
-                    "name": "KOL Female 01 > Luna",
-                    "thumbnail": TransferSample,
-                },
-                {
-                    "id": "luna-transfer-02",
-                    "name": "KOL Female 02 > Luna",
-                    "thumbnail": TransferSample,
-                },
-            ],
+            transfers: Globals.transfers,
             selectedTransfers: [],
-            plates: [
-                {
-                    "id": "plate-01",
-                    "name": "Plate Sample 01",
-                    "thumbnail": PlateSample,
-                },
-                {
-                    "id": "plate-02",
-                    "name": "Plate Sample 02",
-                    "thumbnail": PlateSample,
-                }
-            ],
+            plates: Globals.plates,
             selectedPlates: [],
-            finals: [
-                {
-                    "id": "final-01",
-                    "name": "Final Sample 01",
-                    "thumbnail": FinalSample,
-                },
-                {
-                    "id": "final-02",
-                    "name": "Final Sample 02",
-                    "thumbnail": FinalSample,
-                },
-            ],
+            finals: Globals.finals,
             selectedFinals: [],
         }
     },
@@ -140,7 +70,6 @@ export default {
             else {
                 navigateTo("/clips");
             }
-
         }
     }
 }
