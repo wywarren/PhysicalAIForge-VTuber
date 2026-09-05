@@ -37,13 +37,13 @@ const data = {
             id: "luna-transfer-01",
             name: "KOL Female 01 > Luna",
             thumbnail: TransferSample,
-            url: "https://media.qoobit.com/2026/09/06/b.mp4",
+            url: "https://media.qoobit.com/2026/09/06/lipsynckol1black.mp4",
         },
         {
             id: "luna-transfer-02",
             name: "KOL Female 02 > Luna",
             thumbnail: TransferSample,
-            url: "https://media.qoobit.com/2026/09/06/greenscreen.mp4",
+            url: "https://media.qoobit.com/2026/09/06/lipsynckol1green.mp4",
         },
     ],
     plates: [
@@ -65,13 +65,13 @@ const data = {
             id: "final-01",
             name: "Final Sample 01",
             thumbnail: "https://media.qoobit.com/2026/09/06/comp1.png",
-            url: "https://media.qoobit.com/2026/09/06/composite1.mp4",
+            url: "https://media.qoobit.com/2026/09/06/cmfinallipsync.mp4",
         },
         {
             id: "final-02",
             name: "Final Sample 02",
             thumbnail: FinalSample,
-            url: "https://media.qoobit.com/2026/09/06/kol1.mp4",
+            url: "https://media.qoobit.com/2026/09/06/cm2.mp4",
         },
     ],
 };
