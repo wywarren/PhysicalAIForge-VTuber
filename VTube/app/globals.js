@@ -78,6 +78,36 @@ const data = {
             name: "Plate Sample 02",
             thumbnail: PlateSample,
         },
+        {
+            id: "plate-03",
+            name: "Plate Sample 03",
+            thumbnail: PlateSample,
+        },
+        {
+            id: "plate-04",
+            name: "Plate Sample 04",
+            thumbnail: PlateSample,
+        },
+        {
+            id: "plate-05",
+            name: "Plate Sample 05",
+            thumbnail: PlateSample,
+        },
+        {
+            id: "plate-06",
+            name: "Plate Sample 06",
+            thumbnail: PlateSample,
+        },
+        {
+            id: "plate-07",
+            name: "Plate Sample 07",
+            thumbnail: PlateSample,
+        },
+        {
+            id: "plate-08",
+            name: "Plate Sample 08",
+            thumbnail: PlateSample,
+        },
     ],
     finals: [
         {

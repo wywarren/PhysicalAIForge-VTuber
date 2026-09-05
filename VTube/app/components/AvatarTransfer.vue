@@ -41,6 +41,11 @@
                 </template>
             </ul>
         </div>
+        <div class="actions" v-if="selectedAvatar && selectedClips.length > 0">
+            <button class="primary" @click="convertTransfers()">
+                Convert
+            </button>
+        </div>
     </div>
 </template>
 <script>
@@ -62,6 +67,11 @@ export default {
 
     },
     methods: {
+        convertTransfers() {
+            console.log(this.selectedAvatar);
+            console.log(this.selectedClips);
+            this.$emit("convert-transfers");
+        },
         removeClip(clip) {
             this.$emit("remove-clip", clip);
         },

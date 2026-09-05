@@ -16,7 +16,7 @@
             </button> -->
         </div>
         <div class="row-container">
-            <ul class="results" style="margin-top: 20px;">
+            <ul class="results grid" style="margin-top: 20px;">
                 <template v-for="(transfer, index) in transfers" :key="index">
                     <li>
                         <div class="transfer-item">

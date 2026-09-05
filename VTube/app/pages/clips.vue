@@ -16,7 +16,7 @@ import AvatarTransfer from '~/components/AvatarTransfer.vue';
             </button>
         </div>
         <div class="row-container">
-            <ul class="results" style="margin-top: 20px;">
+            <ul class="results grid" style="margin-top: 20px;">
                 <template v-for="(clip, index) in clips" :key="index">
                     <li>
                         <div class="clip-item">
@@ -39,7 +39,9 @@ import AvatarTransfer from '~/components/AvatarTransfer.vue';
                 </template>
             </ul>
         </div>
-        <AvatarTransfer :selected-avatar="selectedAvatar" :selected-clips="selectedClips" @remove-clip="removeClip"/>
+        <AvatarTransfer :selected-avatar="selectedAvatar" :selected-clips="selectedClips"
+            @remove-clip="removeClip"
+            @convert-transfers="convertTransfers"/>
     </div>
 </template>
 <script>
@@ -62,6 +64,9 @@ export default {
 
     },
     methods: {
+        convertTransfers(){
+            this.$emit("convert-transfers");
+        },
         removeClip(clip){
             this.$emit("remove-clip", clip);
         },

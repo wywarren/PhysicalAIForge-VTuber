@@ -62,14 +62,14 @@ export default {
             return false;
         },
         toggleMobileMenu() {
-            this.$refs.burgerMenuButton.classList.toggle("side");
-            this.$refs.mask.classList.toggle("visible");
-            this.$refs.mainNav.classList.toggle("visible");
+            // this.$refs.burgerMenuButton.classList.toggle("side");
+            // this.$refs.mask.classList.toggle("visible");
+            // this.$refs.mainNav.classList.toggle("visible");
         },
         hideMobileMenu() {
-            this.$refs.burgerMenuButton.classList.remove("side");
-            this.$refs.mask.classList.remove("visible");
-            this.$refs.mainNav.classList.remove("visible");
+            // this.$refs.burgerMenuButton.classList.remove("side");
+            // this.$refs.mask.classList.remove("visible");
+            // this.$refs.mainNav.classList.remove("visible");
         },
 
     }

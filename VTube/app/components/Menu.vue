@@ -25,11 +25,23 @@ import { watch } from 'vue'
                     </li>
                 </template>
             </ul>
+            <ul class="bottom-menu">
+                <li>
+                    <router-link to="/jobs" :class="{
+                        'router-link-active': route &&
+                            ((route.path.startsWith('/jobs')))
+                    }">
+                        <div class="icon">
+                            <i class="icon-server"></i>
+                            <span class="counter-bubble" v-if="jobs.length>0">{{ jobs.length }}</span>
+                        </div>
+                        <div>
+                            Jobs
+                        </div>
+                    </router-link>
+                </li>
+            </ul>
         </nav>
-        <a ref="burgerMenuButton" class="mobile-menu-toggle" @click="toggleMobileMenu">
-            <hr />
-        </a>
-        <a ref="mask" class="mask" @click="toggleMobileMenu"></a>
     </aside>
 </template>
 <script>
@@ -40,6 +52,7 @@ export default {
     props: [
         "sections",
         "section",
+        "jobs",
     ],
     data() {
         return {
@@ -50,33 +63,16 @@ export default {
         const route = useRoute();
         this.route = route;
         watch(() => route.path, (newPath, oldPath) => {
-            this.hideMobileMenu();
+
         })
     },
     methods: {
         nestedPath(page) {
             if (this.route) {
-                if ((this.route.path.startsWith('/work/') || this.route.path.startsWith('/works/')) && page.id == 'works') {
-                    return true;
-                }
-                else if ((this.route.path.startsWith('/product/') || this.route.path.startsWith('/products/')) && page.id == 'products') {
-                    return true;
-                }
             }
 
             return false;
         },
-        toggleMobileMenu() {
-            this.$refs.burgerMenuButton.classList.toggle("side");
-            this.$refs.mask.classList.toggle("visible");
-            this.$refs.mainNav.classList.toggle("visible");
-        },
-        hideMobileMenu() {
-            this.$refs.burgerMenuButton.classList.remove("side");
-            this.$refs.mask.classList.remove("visible");
-            this.$refs.mainNav.classList.remove("visible");
-        },
-
     }
 }
 </script>

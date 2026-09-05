@@ -16,19 +16,16 @@ useHead({
 <template>
     <Header />
     <div class="content-container">
-        <Menu :sections="sections" :section="section" />
+        <Menu :sections="sections" :section="section" :jobs="jobs" />
         <div class="main-content">
             <NuxtPage v-slot="{ Component } = {}">
                 <component :is="Component" :sections="sections" :avatars="avatars" :selected-avatar="selectedAvatar"
                     :clips="clips" :selected-clips="selectedClips" :transfers="transfers"
                     :selected-transfer="selectedTransfer" :plates="plates" :selected-plates="selectedPlates"
-                    :finals="finals" :selected-finals="selectedFinals" 
-                    @select-avatar="selectAvatar"
-                    @select-clip="selectClip" 
-                    @select-transfer="selectTransfer"
-                    @select-plate="selectPlate"
-                    @remove-clip="removeClip"
-                    @remove-plate="removePlate" />
+                    :finals="finals" :selected-finals="selectedFinals" @select-avatar="selectAvatar"
+                    @select-clip="selectClip" @select-transfer="selectTransfer" @select-plate="selectPlate"
+                    @remove-clip="removeClip" @remove-plate="removePlate" @convert-transfers="convertTransfers"
+                    @convert-finals="convertFinals" :jobs="jobs" />
             </NuxtPage>
         </div>
     </div>
@@ -60,12 +57,77 @@ export default {
             selectedPlates: [],
             finals: Globals.finals,
             selectedFinals: [],
+            jobs: [],
         }
     },
     mounted() {
 
     },
     methods: {
+        async convertFinals() {
+            let now = new Date();
+
+            let tasks = [];
+
+            for (let i = 0; i < this.selectedPlates.length; i++) {
+                let plate = this.selectedPlates[i];
+                let task = {
+                    id: "",
+                    slug: "convert_final",
+                    source: this.selectedTransfer,
+                    target: plate,
+                }
+                tasks.push(task);
+            }
+
+            let job = {
+                id: "",
+                slug: "convert_final",
+                submittedBy: "Guest",
+                date: now.toISOString(),
+                tasks: tasks,
+                completedTasks: [],
+                status: 2,
+            }
+
+            this.selectedTransfer = null;
+            this.selectedPlates = [];
+            this.jobs.push(job);
+            console.log(job);
+        },
+        async convertTransfers() {
+            let now = new Date();
+
+            let tasks = [];
+
+            for (let i = 0; i < this.selectedClips.length; i++) {
+                let clip = this.selectedClips[i];
+
+                let task = {
+                    id: "",
+                    slug: "convert_transfer",
+                    source: this.selectedAvatar,
+                    target: clip,
+                }
+
+                tasks.push(task);
+            }
+
+            let job = {
+                id: "",
+                slug: "convert_transfer",
+                submittedBy: "Guest",
+                date: now.toISOString(),
+                tasks: tasks,
+                completedTasks: [],
+                status: 2,
+            }
+
+            this.selectedAvatar = null;
+            this.selectedClips = [];
+            this.jobs.push(job);
+            console.log(job);
+        },
         async selectTransfer(transfer) {
             this.selectedTransfer = transfer;
 

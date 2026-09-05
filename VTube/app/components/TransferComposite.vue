@@ -39,6 +39,11 @@
                 </template>
             </ul>
         </div>
+        <div class="actions" v-if="selectedTransfer && selectedPlates.length > 0">
+            <button class="primary" @click="convertFinal()">
+                Convert
+            </button>
+        </div>
     </div>
 </template>
 <script>
@@ -60,6 +65,11 @@ export default {
 
     },
     methods: {
+        convertFinal() {
+            console.log(this.selectedTransfer);
+            console.log(this.selectedPlates);
+            this.$emit("convert-finals");
+        },
         removePlate(plate) {
             this.$emit("remove-plate", plate);
         },

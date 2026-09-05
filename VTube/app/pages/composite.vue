@@ -16,7 +16,7 @@ import TransferComposite from '~/components/TransferComposite.vue';
             </button>
         </div>
         <div class="row-container">
-            <ul class="results" style="margin-top: 20px;">
+            <ul class="results grid" style="margin-top: 20px;">
                 <template v-for="(plate, index) in plates" :key="index">
                     <li>
                         <div class="plate-item">
@@ -42,7 +42,8 @@ import TransferComposite from '~/components/TransferComposite.vue';
             </ul>
         </div>
         <TransferComposite :selected-transfer="selectedTransfer" :selected-plates="selectedPlates"
-            @remove-plate="removePlate" />
+            @remove-plate="removePlate" 
+            @convert-finals="convertFinals" />
     </div>
 </template>
 <script>
@@ -64,6 +65,9 @@ export default {
 
     },
     methods: {
+        convertFinals(){
+            this.$emit("convert-finals");
+        },
         removePlate(plate){
             this.$emit("remove-plate", plate);
         },

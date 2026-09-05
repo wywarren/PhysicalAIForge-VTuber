@@ -12,7 +12,7 @@
             </button>
         </div>
         <div class="row-container">
-            <ul class="results" style="margin-top: 20px;">
+            <ul class="results grid" style="margin-top: 20px;">
                 <template v-for="(final, index) in finals" :key="index">
                     <li>
                         <div class="final-item">
