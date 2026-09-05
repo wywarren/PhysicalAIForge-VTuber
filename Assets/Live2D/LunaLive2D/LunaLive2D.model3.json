@@ -1,0 +1,21 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "LunaLive2D.moc3",
+		"Textures": [
+			"LunaLive2D.2048/texture_00.png",
+			"LunaLive2D.2048/texture_01.png",
+			"LunaLive2D.2048/texture_02.png",
+			"LunaLive2D.2048/texture_03.png"
+		],
+		"Physics": "LunaLive2D.physics3.json",
+		"DisplayInfo": "LunaLive2D.cdi3.json"
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		}
+	]
+}
