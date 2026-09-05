@@ -19,6 +19,14 @@
                             <a class="thumbnail" @click="selectFinal(final.id)"
                                 :style="`background-image: url(` + final.thumbnail + `);`">
                                 <div class="fade-mask"></div>
+                                <div class="hover-mask">
+                                    <a class="play-circle" @click="">
+                                        <div class="play-triangle"></div>
+                                    </a>
+                                    <button class="secondary">
+                                        Share
+                                    </button>
+                                </div>
                                 <div class="name">
                                     <span class="tag">{{ final.name }}</span>
                                 </div>

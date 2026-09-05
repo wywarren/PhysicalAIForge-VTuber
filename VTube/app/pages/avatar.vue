@@ -16,7 +16,7 @@
                 <template v-for="(avatar, index) in avatars" :key="index">
                     <li>
                         <div class="avatar-item">
-                            <a class="thumbnail" @click="selectAvatar(avatar.id)"
+                            <a class="thumbnail" @click="selectAvatar(avatar.id)" title="Click to Select"
                                 :style="`background-image: url(` + avatar.thumbnail + `);`">
                                 <div class="fade-mask">
                                 </div>

@@ -24,6 +24,14 @@
                                 :style="`background-image: url(` + plate.thumbnail + `);`">
                                 <div class="fade-mask">
                                 </div>
+                                <div class="hover-mask">
+                                    <a class="play-circle" @click="">
+                                        <div class="play-triangle"></div>
+                                    </a>
+                                    <button class="secondary">
+                                        Select Plate
+                                    </button>
+                                </div>
                                 <div class="name">
                                     <span class="tag">{{ plate.name }}</span>
                                 </div>

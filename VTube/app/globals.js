@@ -16,37 +16,7 @@ const data = {
             id: "hachiware",
             name: "Hachiware",
             thumbnail: Hachiware,
-        },
-        {
-            id: "luna",
-            name: "Luna",
-            thumbnail: Luna,
-        },
-        {
-            id: "hachiware",
-            name: "Hachiware",
-            thumbnail: Hachiware,
-        },
-        {
-            id: "luna",
-            name: "Luna",
-            thumbnail: Luna,
-        },
-        {
-            id: "hachiware",
-            name: "Hachiware",
-            thumbnail: Hachiware,
-        },
-        {
-            id: "luna",
-            name: "Luna",
-            thumbnail: Luna,
-        },
-        {
-            id: "hachiware",
-            name: "Hachiware",
-            thumbnail: Hachiware,
-        },
+        }
     ],
     clips: [
         {

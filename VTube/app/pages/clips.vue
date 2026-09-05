@@ -20,13 +20,20 @@
                 <template v-for="(clip, index) in clips" :key="index">
                     <li>
                         <div class="clip-item">
-                            <a class="thumbnail" :style="`background-image: url(` + clip.thumbnail + `);`">
+                            <div class="thumbnail" :style="`background-image: url(` + clip.thumbnail + `);`">
                                 <div class="fade-mask"></div>
-                            
+                                <div class="hover-mask">
+                                    <a class="play-circle" @click="">
+                                        <div class="play-triangle"></div>
+                                    </a>
+                                    <button class="secondary">
+                                        Select Clip
+                                    </button>
+                                </div>
                                 <div class="name">
                                     <span class="tag">{{ clip.name }}</span>
                                 </div>
-                            </a>
+                            </div>
                         </div>
                     </li>
                 </template>
