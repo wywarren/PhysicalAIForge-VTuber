@@ -1,7 +1,7 @@
 <script setup></script>
 <template>
     <div style="display: flex;align-items: center;justify-content: center;flex-direction: column;height:100%">
-        <h1>Welcome to VTube Clip Manger</h1>
+        <h1>Welcome to VTube Shorts Builder</h1>
         <h2 style="font-weight: normal;">Select a feature to get started</h2>
 
         <div class="row-container">
