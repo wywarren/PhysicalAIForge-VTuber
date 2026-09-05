@@ -140,6 +140,10 @@
 	"ParameterGroups": [],
 	"Parts": [
 		{
+			"Id": "Part",
+			"Name": "LunaLive2D.psd (Corresponding layer not found)"
+		},
+		{
 			"Id": "Bang",
 			"Name": "Bang"
 		},
@@ -160,6 +164,10 @@
 			"Name": "Body"
 		},
 		{
+			"Id": "Face2",
+			"Name": "Face"
+		},
+		{
 			"Id": "R_Eye",
 			"Name": "R_Eye"
 		},
@@ -178,6 +186,10 @@
 		{
 			"Id": "L_Ear",
 			"Name": "L_Ear"
+		},
+		{
+			"Id": "Mouth2",
+			"Name": "Mouth"
 		}
 	],
 	"CombinedParameters": [
@@ -188,6 +200,10 @@
 		[
 			"ParamEyeBallX",
 			"ParamEyeBallY"
+		],
+		[
+			"ParamMouthForm",
+			"ParamMouthOpenY"
 		]
 	]
 }
