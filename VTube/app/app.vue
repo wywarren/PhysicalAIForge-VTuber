@@ -20,11 +20,10 @@ useHead({
         <div class="main-content">
             <NuxtPage v-slot="{ Component } = {}">
                 <component :is="Component" :sections="sections" :avatars="avatars" :selected-avatar="selectedAvatar"
-                    :clips="clips" :selected-clips="selectedClips" 
-                    :transfers="transfers" :selected-transfers="selectedTransfers" 
-                    :plates="plates" :selected-plates="selectedPlates"
-                    :finals="finals" :selected-finals="selectedFinals"
-                    @select-avatar="selectAvatar" />
+                    :clips="clips" :selected-clips="selectedClips" :transfers="transfers"
+                    :selected-transfers="selectedTransfers" :plates="plates" :selected-plates="selectedPlates"
+                    :finals="finals" :selected-finals="selectedFinals" @select-avatar="selectAvatar"
+                    @select-clip="selectClip" @remove-clip="removeClip" />
             </NuxtPage>
         </div>
     </div>
@@ -64,11 +63,28 @@ export default {
     methods: {
         async selectAvatar(avatar) {
             this.selectedAvatar = avatar;
-            if (this.selectedClips.length > 0) {
-                navigateTo("/transfer");
+
+            navigateTo("/clips");
+
+        },
+        async removeClip(clip) {
+            for (let i = 0; i < this.selectedClips.length; i++) {
+                if (this.selectedClips[i].id == clip.id) {
+                    this.selectedClips.splice(i, 1);
+                    break;
+                }
             }
-            else {
-                navigateTo("/clips");
+        },
+        async selectClip(clip) {
+            let exists = false;
+            for (let i = 0; i < this.selectedClips.length; i++) {
+                if (this.selectedClips[i].id == clip.id) {
+                    exists = true;
+                    break;
+                }
+            }
+            if (!exists) {
+                this.selectedClips.push(clip)
             }
         }
     }

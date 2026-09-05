@@ -26,7 +26,7 @@
                                     <a class="play-circle" @click="">
                                         <div class="play-triangle"></div>
                                     </a>
-                                    <button class="secondary">
+                                    <button class="secondary" @click="selectClip(clip.id)">
                                         Select Clip
                                     </button>
                                 </div>
@@ -39,6 +39,7 @@
                 </template>
             </ul>
         </div>
+        <AvatarTransfer :selected-avatar="selectedAvatar" :selected-clips="selectedClips" @remove-clip="removeClip"/>
     </div>
 </template>
 <script>
@@ -48,7 +49,9 @@ export default {
 
     },
     props: [
-        "clips"
+        "clips",
+        "selected-avatar",
+        "selected-clips",
     ],
     data() {
         return {
@@ -59,6 +62,9 @@ export default {
 
     },
     methods: {
+        removeClip(clip){
+            this.$emit("remove-clip", clip);
+        },
         selectClip(id) {
             for (let i = 0; i < this.clips.length; i++) {
                 let clip = this.clips[i];
