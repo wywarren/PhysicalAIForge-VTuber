@@ -21,3 +21,4 @@ Demo temporarily hosted at: https://vtube.qoobit.com
 
 ## Credits
 - Sample plate from unsplash: `https://unsplash.com/photos/person-walking-inside-building-near-glass-2TLREZi7BUg?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink` from Heidi Fin
+- Image Decomposition `see-through` (https://github.com/shitagaki-lab/see-through)
