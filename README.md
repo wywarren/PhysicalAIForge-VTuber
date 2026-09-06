@@ -1,4 +1,4 @@
-# Physical AI Forge - VTuber
+# Physical AI Forge - VTuber 1
 
 Source assets: `/Assets`
 
